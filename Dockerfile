@@ -1,4 +1,4 @@
-FROM node:16.10-slim
+FROM node:21-slim
 
 # Create app directory
 RUN mkdir -p /app
@@ -17,7 +17,7 @@ ENV NODE_ENV production
 
 # Bundle app source
 COPY . /app
-RUN pnpm build
+RUN exec sh && pnpm run build
 
 EXPOSE 5000
 CMD [ "pnpm", "start" ]
