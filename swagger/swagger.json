@@ -1,108 +1,29 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-      "title": "Node API",
-      "description": "API for Health Check ",
-      "version": "1.0.0"
-    },
-    "servers": [
-      {
-        "url": "http://localhost:5000"
-      }
-    ],
-    "paths": {
-      "/api/v1/customer/getcustomer": {
-        "get": {
-          "summary": "Get customer by CustCode",
-          "tags": ["Customer"],
-          "parameters": [
-            {
-              "name": "CustCode",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "A list of customer",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/CustomerCRS"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/customer/createcustomer": {
-        "post": {
-            "summary": "Create a new customer",
-            "tags": ["Customer"],
-            "requestBody": {
-              "required": true,
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CustomerCRS"
-                  }
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "description": "Success"
-              }
-            }
-          }
-        }
-    },
-    "components": {
-      "schemas": {
-        "CustomerCRS": {
-          "type": "object",
-          "properties": {
-            "CustCode": {
-              "type": "string"
-            },
-            "crsPlaceOfBirthCountry": {
-              "type": "string"
-            },
-            "crsPlaceOfBirthCity": {
-              "type": "string"
-            },
-            "crsTaxResidenceInCountriesOtherThanTheUS": {
-                "type": "string"
-            },
-            "crsDeclarationDate": {
-                "type": "string",
-                "format": "date"
-            },
-            "tin": {
-                "type": "string"
-            },
-            "reason": {
-                "type": "string"
-            },
-            "reasonDesc": {
-                "type": "string"
-            },
-            "countryOfTaxResidence": {
-                "type": "string"
-            },
-            "updatedate": {
-                "type": "string",
-                "format": "date-time"
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Node API",
+    "description": "API For Health Check ",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "paths": {
+    "/api/v1/HealthCheck/processCheck": {
+      "get": {
+        "summary": "Get Health Check API",
+        "tags": ["Health Check"],
+        "responses": {
+          "200": {
+            "description": "Health Check API",
+            "content": {
+              "application/json": {}
             }
           }
         }
       }
     }
+  }
 }

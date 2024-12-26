@@ -1,5 +1,6 @@
 const router = require('express').Router()
 
-router.use('/customer', require('./customer'))
+router.use('/healthcheck', require('./healthcheck'))
+
 
 module.exports = router
